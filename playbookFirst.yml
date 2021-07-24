@@ -1,0 +1,14 @@
+---
+  - name: "Test PlayBook"
+    hosts: localhost
+    become: yes #sudo permission
+
+    tasks:
+
+      - name: "test reachabiliy"
+        ping:
+     
+      - name: "install webrowser"
+        apt:
+          name: firefox
+          state: present

@@ -1,0 +1,14 @@
+---
+  - name: "Task from Playbook"
+    hosts: localhost 
+
+    tasks:
+
+      - name: "test connection"
+        ping:
+
+      - name: "find module"
+        find:
+          path: "/home/so/Test Directory"
+          recurse: yes
+          file_type: file

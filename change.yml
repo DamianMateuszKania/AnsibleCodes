@@ -1,0 +1,33 @@
+---
+  - name: "React with Change Example"
+    hosts: myHosts
+    serial: 1
+
+    tasks:
+
+    - name: "Install nginix"
+      debug:
+        msg: "Instal nginx on: {{ inventory_hostname }}"
+
+    - name: "Upgrade nginx"
+      debug:
+        msg: "Upgrade nginx on: {{ inventory_hostname }}"
+
+    - name: "Configure nginx"
+      debug:
+        msg: "Start {{ inventory_hostname }}"
+      notify: restart nginx #jump to restart nginx handler if changed
+      changed_when: True #is changed
+
+    - name: "Verify nginx"
+      debug:
+        msg: "Verify: {{ inventory_hostname }}"
+
+    handlers:
+    - name: restart nginx
+      debug:
+        msg: "Called Handler For Restart"
+
+    
+
+    

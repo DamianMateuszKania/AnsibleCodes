@@ -1,0 +1,17 @@
+---
+  - hosts: all
+    become: yes
+    name: "NTP Configuration"
+
+    tasks:
+            - name: "Ensure NTP is installed" # if is not installed it will be install
+              apt:
+               name:
+                - ntp 
+               state: present
+
+            - name: "Ensure NTP is started"
+              service:
+               name: ntp 
+               state: started
+               enabled: yes

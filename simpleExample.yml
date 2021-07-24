@@ -1,0 +1,14 @@
+---
+  - name: sampleplaybook
+    hosts: all #to all hosts 
+    become: yes
+    become_user: root #we will have root permissions
+    tasks:
+      - name: ensure apache is at the lastest version
+        yum:
+          name: httpd
+          state: latest
+      - name: ensure apache is running
+        service:
+          name: httpd
+          state: started

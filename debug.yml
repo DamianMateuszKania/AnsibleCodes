@@ -1,0 +1,10 @@
+---
+  - name: "Debug communication"
+    hosts: myHosts
+    serial: 1
+
+    tasks:
+    
+    - name: "Shutdown Server"
+      debug:
+        msg: "Shutdown Server"
